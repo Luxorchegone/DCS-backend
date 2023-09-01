@@ -11,7 +11,7 @@ async function bootstrap() {
     optionsSuccessStatus: 200,
     credentials: true,
     allowedHeaders:
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization, authorization, X-Forwarded-for, X-Api-Key',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization, authorization, X-Forwarded-for, X-Api-Key,',
   });
   //TODO: донастроить CORS
   app.useGlobalPipes(new ValidationPipe());
