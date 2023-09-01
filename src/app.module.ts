@@ -9,6 +9,9 @@ import { MainsectionModule } from './mainsection/mainsection.module';
 import { SubscribersModule } from './subscribers/subscribers.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { DevLogEntity } from './devlog/entities/devlog.entity';
+import { MainSectionEntity } from './mainsection/entities/mainsection.entity';
+import { UserEntity } from './users/entities/user.entity';
 
 @Module({
   imports: [
@@ -22,7 +25,7 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [],
+      entities: [DevLogEntity, MainSectionEntity, UserEntity],
       //не забыть убрать синхронизацию проде!
       synchronize: true,
     }),

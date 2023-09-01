@@ -9,6 +9,5 @@ export class CreateMainsectionDto {
   title: string;
 
   @IsArray()
-  body: OutputBlockData[];
+  mainContent: OutputBlockData[];
 }
-

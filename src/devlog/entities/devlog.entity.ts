@@ -8,7 +8,7 @@ import {
 import { OutputBlockData } from '../dto/create-devlog.dto';
 
 @Entity('devlog')
-export class DevLog {
+export class DevLogEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -19,7 +19,7 @@ export class DevLog {
   mainContent: OutputBlockData[];
 
   @Column({ type: 'jsonb' })
-  shortContent: OutputBlockData[];
+  previewContent: OutputBlockData[];
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

@@ -1,26 +1,62 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMainsectionDto } from './dto/create-mainsection.dto';
 import { UpdateMainsectionDto } from './dto/update-mainsection.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { MainSectionEntity } from './entities/mainsection.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class MainsectionService {
+  constructor(
+    @InjectRepository(MainSectionEntity)
+    private repository: Repository<MainSectionEntity>,
+  ) {}
+
   create(createMainsectionDto: CreateMainsectionDto) {
-    return 'This action adds a new mainsection';
+    return this.repository.save(createMainsectionDto);
   }
 
   findAll() {
-    return `This action returns all mainsection`;
+    return this.repository.find({
+      order: {
+        id: 'DESC',
+      },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} mainsection`;
+  //Сокрее всего по отдельностр секции не нужны
+  // async findOne(id: number) {
+  //   const findMainSection = await this.repository.findOneBy({ id: id });
+  //   if (!findMainSection) {
+  //     throw new NotFoundException('Данная запись не найдена');
+  //   }
+
+  //   return findMainSection;
+  // }
+
+  async update(id: number, updateMainsectionDto: UpdateMainsectionDto) {
+    const findMainSection = await this.repository.findOneBy({ id: id });
+    if (!findMainSection) {
+      throw new NotFoundException(
+        'Данная запись не найдена, редактирование невозможно',
+      );
+    }
+
+    return this.repository.update(id, {
+      title: updateMainsectionDto.title,
+      mainContent: updateMainsectionDto.mainContent,
+    });
   }
 
-  update(id: number, updateMainsectionDto: UpdateMainsectionDto) {
-    return `This action updates a #${id} mainsection`;
-  }
+  async remove(id: number) {
+    const findMainSection = await this.repository.findOneBy({ id: id });
 
-  remove(id: number) {
-    return `This action removes a #${id} mainsection`;
+    if (!findMainSection) {
+      throw new NotFoundException(
+        'Данная запись не найдена, удаление невозможно',
+      );
+    }
+
+    return this.repository.delete(id);
   }
 }
