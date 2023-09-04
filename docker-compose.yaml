@@ -1,12 +1,12 @@
-version: '3.1'
+version: '3'
 services:
   db:
     image: postgres
     restart: always
     ports:
-      - 3323:5432
+      - 5432:5432
     environment:
-      POSTGRES_PASSWORD: 6M/*=66xt6t!WKa
-      POSTGRES_USER: postgres#1
+      POSTGRES_PASSWORD: py9-Akc-UWU-P7n
+      POSTGRES_USER: dcs_user
     volumes:
       - ./dcs-site-db:/var/lib/postgresql/data
