@@ -5,8 +5,8 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: [/^(.*)/],
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    origin: ['https://garnet-dcs.tech/admin', 'http://127.0.0.1:7878/'],
+    methods: ['GET', 'HEAD', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     preflightContinue: false,
     optionsSuccessStatus: 200,
     credentials: true,
