@@ -19,7 +19,6 @@ export class UsersService {
     return await this.repository.findOne({
       where: {
         email: cond.email,
-        password: cond.password,
       },
     });
   }

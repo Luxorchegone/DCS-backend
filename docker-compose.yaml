@@ -6,7 +6,8 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_PASSWORD: py9-Akc-UWU-P7n
-      POSTGRES_USER: dcs_user
+      POSTGRES_PASSWORD: 'py9-Akc-UWU-P7n'
+      POSTGRES_USER: 'dcs_user'
+      
     volumes:
-      - ./dcs-site-db:/var/lib/postgresql/data
+      - ./dcs_pgdb:/var/lib/postgresql/data

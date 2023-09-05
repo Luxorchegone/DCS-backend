@@ -23,9 +23,20 @@ export class AuthService {
   }
 
   async login(user: UserEntity) {
-    const payload = { id: user.id };
+    const payload = { email: user.email };
     return {
       token: this.jwtService.sign(payload),
     };
+  }
+
+  async validate(dto: any) {
+    const user = await this.usersService.findByCond({
+      email: dto.email,
+    });
+    if (user && user.email) {
+      const { email } = user;
+      return { email };
+    }
+    return null;
   }
 }
