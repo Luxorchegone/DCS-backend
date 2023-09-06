@@ -6,7 +6,13 @@ export interface OutputBlockData {
 }
 export class CreateMainsectionDto {
   @IsString()
+  tag: string;
+
+  @IsString()
   title: string;
+
+  @IsString()
+  leftImage: string;
 
   @IsArray()
   mainContent: OutputBlockData[];

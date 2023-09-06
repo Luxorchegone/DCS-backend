@@ -13,7 +13,13 @@ export class MainSectionEntity {
   id: number;
 
   @Column()
+  tag: string;
+
+  @Column()
   title: string;
+
+  @Column()
+  leftImage: string;
 
   @Column({ type: 'jsonb', nullable: true })
   mainContent: OutputBlockData[];
