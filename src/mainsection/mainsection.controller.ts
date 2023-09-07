@@ -28,6 +28,11 @@ export class MainsectionController {
     return this.mainsectionService.findAll();
   }
 
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.mainsectionService.findOne(+id);
+  }
+
   @UseGuards(JwtAuthGuard)
   @Patch(':id')
   update(

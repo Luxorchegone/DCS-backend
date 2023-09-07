@@ -24,15 +24,14 @@ export class MainsectionService {
     });
   }
 
-  //Сокрее всего по отдельностр секции не нужны
-  // async findOne(id: number) {
-  //   const findMainSection = await this.repository.findOneBy({ id: id });
-  //   if (!findMainSection) {
-  //     throw new NotFoundException('Данная запись не найдена');
-  //   }
+  async findOne(id: number) {
+    const findMainSection = await this.repository.findOneBy({ id: id });
+    if (!findMainSection) {
+      throw new NotFoundException('Данная запись не найдена');
+    }
 
-  //   return findMainSection;
-  // }
+    return findMainSection;
+  }
 
   async update(id: number, updateMainsectionDto: UpdateMainsectionDto) {
     const findMainSection = await this.repository.findOneBy({ id: id });
