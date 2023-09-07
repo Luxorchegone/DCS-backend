@@ -28,7 +28,7 @@ import { FileEntity } from './files/entities/file.entity';
       database: process.env.DB_NAME,
       entities: [DevLogEntity, MainSectionEntity, UserEntity, FileEntity],
       //не забыть убрать синхронизацию проде!
-      synchronize: true,
+      // synchronize: true,
     }),
     AuthModule,
     FilesModule,

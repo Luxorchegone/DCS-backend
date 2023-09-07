@@ -21,6 +21,7 @@ export class MainSectionEntity {
   @Column()
   leftImage: string;
   //изображение текст правой части контентного блока
+
   @Column({ type: 'jsonb', nullable: true })
   mainContent: OutputBlockData[];
 
