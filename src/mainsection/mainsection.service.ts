@@ -19,7 +19,7 @@ export class MainsectionService {
   findAll() {
     return this.repository.find({
       order: {
-        id: 'DESC',
+        id: 'ASC',
       },
     });
   }

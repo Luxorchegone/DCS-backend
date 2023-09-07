@@ -11,10 +11,16 @@ import { OutputBlockData } from '../dto/create-mainsection.dto';
 export class MainSectionEntity {
   @PrimaryGeneratedColumn()
   id: number;
-
+  //название раздела для механизма навигации
+  @Column()
+  tag: string;
+  //название раздела на странице и в меню
   @Column()
   title: string;
-
+  //изображение влевой части контентного блока
+  @Column()
+  leftImage: string;
+  //изображение текст правой части контентного блока
   @Column({ type: 'jsonb', nullable: true })
   mainContent: OutputBlockData[];
 
