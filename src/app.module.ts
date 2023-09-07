@@ -12,6 +12,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DevLogEntity } from './devlog/entities/devlog.entity';
 import { MainSectionEntity } from './mainsection/entities/mainsection.entity';
 import { UserEntity } from './users/entities/user.entity';
+import { FileEntity } from './files/entities/file.entity';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { UserEntity } from './users/entities/user.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [DevLogEntity, MainSectionEntity, UserEntity],
+      entities: [DevLogEntity, MainSectionEntity, UserEntity, FileEntity],
       //не забыть убрать синхронизацию проде!
       synchronize: true,
     }),
