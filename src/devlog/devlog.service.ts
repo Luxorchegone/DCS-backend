@@ -31,7 +31,6 @@ export class DevlogService {
     if (!findDevLog) {
       throw new NotFoundException('Данная запись не найдена');
     }
-
     return findDevLog;
   }
 
@@ -43,7 +42,6 @@ export class DevlogService {
         'Данная запись не найдена, редактирование невозможно',
       );
     }
-
     return this.repository.update(id, {
       title: updateDevlogDto.title,
       mainContent: updateDevlogDto.mainContent,
@@ -60,7 +58,6 @@ export class DevlogService {
         'Данная запись не найдена, удаление невозможно',
       );
     }
-
     return this.repository.delete(id);
   }
 }
